@@ -1,0 +1,38 @@
+---
+layout: "base.njk"
+---
+<article class="post">
+  <div class="post-container">
+    <header class="post-header">
+      {% if feature_image %}
+      <div class="post-feature-image">
+        <img src="{{ feature_image }}" alt="{{ title }}" class="post-feature-img" />
+      </div>
+      {% endif %}
+
+      {% if tags and tags.length %}
+      <div class="post-tags">
+        {% for tag in tags %}
+        <a href="/tag/{{ tag | slug }}/" class="tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h1 class="post-title">{{ title }}</h1>
+
+      {% if excerpt %}
+      <p class="post-excerpt">{{ excerpt }}</p>
+      {% endif %}
+
+      <time class="post-date" datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+    </header>
+
+    <div class="post-content">
+      {{ content | safe }}
+    </div>
+
+    <footer class="post-footer">
+      <a href="/" class="back-link">← Back to all posts</a>
+    </footer>
+  </div>
+</article>

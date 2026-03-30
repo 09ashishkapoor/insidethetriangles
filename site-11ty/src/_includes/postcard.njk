@@ -1,0 +1,21 @@
+<article class="postcard">
+  {% if post.data.feature_image %}
+  <a href="{{ post.url }}" class="postcard-img-link">
+    <img src="{{ post.data.feature_image }}" alt="{{ post.data.title }}" class="postcard-img" loading="lazy" />
+  </a>
+  {% endif %}
+  <div class="postcard-body">
+    {% if post.data.tags and post.data.tags.length %}
+    <div class="postcard-tags">
+      {% for tag in post.data.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <h3 class="postcard-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+    {% if post.data.excerpt %}
+    <p class="postcard-excerpt">{{ post.data.excerpt }}</p>
+    {% endif %}
+    <time class="postcard-date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+  </div>
+</article>

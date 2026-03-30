@@ -1,0 +1,41 @@
+---
+layout: "base.njk"
+title: "Home"
+---
+<section class="hero">
+  <div class="hero-inner">
+    <img src="/images/2025/06/boo2.jpg" alt="Inside The Triangles" class="hero-logo" />
+    <h1 class="hero-title">Inside The Triangles</h1>
+    <p class="hero-sub">Thoughts, stories and poems about Ma Adya Mahakali and Bhairava</p>
+  </div>
+</section>
+
+<section class="post-grid-section">
+  <div class="section-inner">
+    <h2 class="section-title">Latest</h2>
+    <div class="post-grid">
+      {% for post in collections.allPosts | limit(12) %}
+        {% include "postcard.njk" %}
+      {% endfor %}
+    </div>
+    {% if collections.allPosts | length > 12 %}
+    <div class="see-all">
+      <a href="/articles/" class="btn-outline">See all posts</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="category-strips">
+  <div class="section-inner">
+    <div class="category-strip">
+      <h2 class="section-title">Poems</h2>
+      <div class="post-grid">
+        {% for post in collections.poems | limit(6) %}
+          {% include "postcard.njk" %}
+        {% endfor %}
+      </div>
+      <div class="see-all"><a href="/poems/" class="btn-outline">All poems →</a></div>
+    </div>
+  </div>
+</section>

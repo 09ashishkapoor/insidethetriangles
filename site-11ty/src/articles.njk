@@ -1,0 +1,15 @@
+---
+layout: "base.njk"
+title: "Articles"
+permalink: /articles/
+---
+<div class="page-container">
+  <header class="page-header">
+    <h1>All Posts</h1>
+  </header>
+  <div class="post-grid">
+    {% for post in collections.allPosts %}
+      {% include "postcard.njk" %}
+    {% endfor %}
+  </div>
+</div>

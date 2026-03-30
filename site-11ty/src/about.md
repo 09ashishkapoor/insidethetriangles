@@ -1,0 +1,10 @@
+---
+title: "Welcome to Insidethetriangles"
+slug: "about"
+date: "2025-03-24T21:00:09.000Z"
+feature_image: "/images/2025/04/8e05fce6-c58c-4dc7-a6bc-bd9a6582ad65.png"
+featured: true
+layout: "post.njk"
+---
+
+<p><strong>Insidethetriangles</strong>&nbsp;is a blog created with the aadesh of Adya Ma, by me a humble KaliPutra with name Ashish Kapoor, a gentle nudge from Ma to share joy, creativity, and bliss. This isn’t a subscription site or an exclusive club; it’s simply a space where I come to have fun, tell stories, write poems, and be in bliss with Ma in written medium.</p><p>You’ll notice that I use AI technology liberally. Artificial intelligence is my companion, sometimes offering inspiration, sometimes helping draft or edit, often surprising me with new perspectives. Whether it’s polishing a poem or sparking an idea for a story, AI has become part of my creative process. I delight in this collaboration and am curious about what unfolds when human intuition meets machine possibility.</p><p>The triangle in the name hints at many things: sacred geometry; meeting points of diverse perspectives; or even just the playful act of drawing shapes like I did as a child. For me, it’s a reminder that inspiration can come from anywhere, and that creativity often lives at unexpected intersections between jivah and technology.</p><p>I honor Adya Ma’s guidance by approaching each post with openness and gratitude. There are no barriers here, just bliss. My content ranges from silly reflections to heartfelt verses; some pieces are handwritten from start to finish, while others emerge through conversation with AI.</p><p>Settle in however you like, with tea in hand or bare feet on cool tile. Enjoy wandering through stories old and new; feel free to start your own blog if you’re inspired! This space is for anyone chilling with Bhairava and Ma Adya's divine vibes.</p><p>Thank you for stopping by. May you enjoy your journey with divinity by your side.</p>
