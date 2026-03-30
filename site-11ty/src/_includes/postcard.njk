@@ -1,7 +1,8 @@
 <article class="postcard">
-  {% if post.data.feature_image %}
+  {% if post.data.card_image or post.data.feature_image %}
   <a href="{{ post.url }}" class="postcard-img-link">
-    <img src="{{ post.data.feature_image }}" alt="{{ post.data.title }}" class="postcard-img" loading="lazy" />
+    {%- set imgSrc = post.data.card_image if post.data.card_image else post.data.feature_image -%}
+    <img src="{{ imgSrc }}" alt="{{ post.data.title }}" class="postcard-img" loading="lazy" />
   </a>
   {% endif %}
   <div class="postcard-body">

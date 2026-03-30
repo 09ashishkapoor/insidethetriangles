@@ -157,7 +157,7 @@ a:hover { color: var(--red-dark); text-decoration: underline; }
 .postcard:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
 .postcard-img-link { display: block; aspect-ratio: 16/9; overflow: hidden; }
-.postcard-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.postcard-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.3s; }
 .postcard-img-link:hover .postcard-img { transform: scale(1.04); }
 
 .postcard-body {
