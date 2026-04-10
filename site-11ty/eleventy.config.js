@@ -23,7 +23,9 @@ export default function (eleventyConfig) {
     api.getAll().filter((i) => isPost(i) && hasTag(i, "long articles")).sort(byDateDesc)
   );
 
-  // Limit filter (Nunjucks slice() chunks arrays — not JS Array.slice)
+  eleventyConfig.addFilter("truncate", (str, n) => (str || "").toString().slice(0, n));
+
+  // Limit filter
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
 
   // Date filter
@@ -53,8 +55,8 @@ export default function (eleventyConfig) {
       includes: "_includes",
       layouts: "_includes",
     },
-    templateFormats: ["njk", "md", "html"],
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
+    templateFormats: ["liquid", "md", "html"],
+    markdownTemplateEngine: "liquid",
+    htmlTemplateEngine: "liquid",
   };
 }

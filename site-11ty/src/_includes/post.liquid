@@ -1,34 +1,34 @@
 ---
-layout: "base.njk"
+layout: "base.liquid"
 ---
 <article class="post">
   <div class="post-container">
     <header class="post-header">
-      {% if feature_image %}
+      {%- if feature_image -%}
       <div class="post-feature-image">
         <img src="{{ feature_image }}" alt="{{ title }}" class="post-feature-img" />
       </div>
-      {% endif %}
+      {%- endif -%}
 
-      {% if tags and tags.length %}
+      {%- if tags.size > 0 -%}
       <div class="post-tags">
-        {% for tag in tags %}
-        <a href="/tag/{{ tag | slug }}/" class="tag">{{ tag }}</a>
-        {% endfor %}
+        {%- for tag in tags -%}
+        <a href="/tag/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+        {%- endfor -%}
       </div>
-      {% endif %}
+      {%- endif -%}
 
       <h1 class="post-title">{{ title }}</h1>
 
-      {% if excerpt %}
+      {%- if excerpt -%}
       <p class="post-excerpt">{{ excerpt }}</p>
-      {% endif %}
+      {%- endif -%}
 
       <time class="post-date" datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
     </header>
 
     <div class="post-content">
-      {{ content | safe }}
+      {{ content }}
     </div>
 
     <footer class="post-footer">

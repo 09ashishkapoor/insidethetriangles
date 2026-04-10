@@ -3,7 +3,7 @@ title: "Shri Kali Tandava Stotram: Translation and Commentary"
 slug: "shri-kali-tandava-stotram-translation-and-commentary"
 date: "2025-11-07T08:03:34.000Z"
 feature_image: "/images/2025/11/uywjs16z45454.jpg"
-layout: "post.njk"
+layout: "post.liquid"
 ---
 
 <hr>

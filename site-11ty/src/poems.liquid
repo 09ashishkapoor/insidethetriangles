@@ -1,5 +1,5 @@
 ---
-layout: "base.njk"
+layout: "base.liquid"
 title: "Poems"
 permalink: /poems/
 ---
@@ -9,8 +9,8 @@ permalink: /poems/
     <p>Devotional verses to Ma Adya Mahakali and Bhairava</p>
   </header>
   <div class="post-grid">
-    {% for post in collections.poems %}
-      {% include "postcard.njk" %}
-    {% endfor %}
+    {%- for post in collections.poems -%}
+      {%- include "postcard.liquid" -%}
+    {%- endfor -%}
   </div>
 </div>

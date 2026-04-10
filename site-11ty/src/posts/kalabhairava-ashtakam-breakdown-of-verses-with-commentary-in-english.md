@@ -3,7 +3,7 @@ title: "Kalabhairava Ashtakam: Breakdown of Verses with Commentary in English"
 slug: "kalabhairava-ashtakam-breakdown-of-verses-with-commentary-in-english"
 date: "2025-11-12T10:27:11.000Z"
 feature_image: "/images/2025/11/kalabhairava.png"
-layout: "post.njk"
+layout: "post.liquid"
 ---
 
 <p><em>Om Shri GuruBhyo Namah. Jai Khyapa Parampara.</em></p>

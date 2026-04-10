@@ -4,10 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  {%- set pageTitle = title + " — " + site.name if title else site.name %}
-  {%- set pageDesc = excerpt if excerpt else site.description %}
-  {%- set pageUrl = site.url + page.url %}
-  {%- set pageImage = (site.url + feature_image) if feature_image else (site.url + "/images/2025/11/kalabhairava.png") %}
+  {%- assign pageTitle = title | append: " — " | append: site.name -%}
+  {%- if pageTitle == " — " | append: site.name -%}{%- assign pageTitle = site.name -%}{%- endif -%}
+  {%- assign pageDesc = excerpt | default: site.description -%}
+  {%- assign pageUrl = site.url | append: page.url -%}
+  {%- if feature_image -%}
+    {%- assign pageImage = site.url | append: feature_image -%}
+  {%- else -%}
+    {%- assign pageImage = site.url | append: "/images/2025/11/kalabhairava.png" -%}
+  {%- endif -%}
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc }}" />
@@ -15,12 +20,18 @@
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="{{ site.name }}" />
-  <meta property="og:type" content="{{ 'article' if layout == 'post.njk' else 'website' }}" />
+  {%- if layout == "post.liquid" -%}
+  <meta property="og:type" content="article" />
+  {%- else -%}
+  <meta property="og:type" content="website" />
+  {%- endif -%}
   <meta property="og:title" content="{{ pageTitle }}" />
   <meta property="og:description" content="{{ pageDesc }}" />
   <meta property="og:url" content="{{ pageUrl }}" />
   <meta property="og:image" content="{{ pageImage }}" />
-  {% if date %}<meta property="article:published_time" content="{{ date | isoDate }}" />{% endif %}
+  {%- if date -%}
+  <meta property="article:published_time" content="{{ date | isoDate }}" />
+  {%- endif -%}
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -32,21 +43,21 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    {% if layout == "post.njk" %}
+    {%- if layout == "post.liquid" %}
     "@type": "BlogPosting",
-    "headline": {{ title | dump }},
-    "description": {{ pageDesc | dump }},
+    "headline": "{{ title }}",
+    "description": "{{ pageDesc }}",
     "url": "{{ pageUrl }}",
     "image": "{{ pageImage }}",
     "datePublished": "{{ date | isoDate }}",
     "author": { "@type": "Person", "name": "KaliPutra_AshishKapoor" },
     "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" }
-    {% else %}
+    {%- else %}
     "@type": "WebSite",
     "name": "{{ site.name }}",
     "url": "{{ site.url }}",
     "description": "{{ site.description }}"
-    {% endif %}
+    {%- endif %}
   }
   </script>
 
@@ -70,12 +81,12 @@
   </header>
 
   <main class="site-main">
-    {{ content | safe }}
+    {{ content }}
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>© {{ "" | isoDate | truncate(4, false, "") }} Inside The Triangles · KaliPutra_AshishKapoor</p>
+      <p>© {{ "" | isoDate | truncate: 4, "" }} Inside The Triangles · KaliPutra_AshishKapoor</p>
       <p class="footer-tagline">Jai Ma Adya Mahakali · Jai Kalabhairava</p>
     </div>
   </footer>

@@ -27,7 +27,7 @@ eleventyExcludeFromCollections: true
   {%- for post in collections.allPosts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
-    <lastmod>{{ post.date | isoDate | truncate(10, false, "") }}</lastmod>
+    <lastmod>{{ post.date | isoDate | truncate: 10, "" }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

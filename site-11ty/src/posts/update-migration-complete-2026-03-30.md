@@ -6,7 +6,7 @@ tags: ["updates"]
 feature_image: "/images/2026/03/update-2026-03-30.jpg"
 card_image: "/images/2026/03/update-2026-03-30-card.jpg"
 excerpt: "This website is not abandoned — 11ty migration from Ghost is complete. More content coming soon."
-layout: "post.njk"
+layout: "post.liquid"
 ---
 
 <p>This website is not abandoned. I was busy creating three other websites:</p>

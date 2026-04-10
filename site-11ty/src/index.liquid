@@ -1,5 +1,5 @@
 ---
-layout: "base.njk"
+layout: "base.liquid"
 title: "Home"
 ---
 <section class="hero">
@@ -14,15 +14,15 @@ title: "Home"
   <div class="section-inner">
     <h2 class="section-title">Latest</h2>
     <div class="post-grid">
-      {% for post in collections.allPosts | limit(12) %}
-        {% include "postcard.njk" %}
-      {% endfor %}
+      {%- for post in collections.allPosts limit: 12 -%}
+        {%- include "postcard.liquid" -%}
+      {%- endfor -%}
     </div>
-    {% if collections.allPosts | length > 12 %}
+    {%- if collections.allPosts.size > 12 -%}
     <div class="see-all">
       <a href="/articles/" class="btn-outline">See all posts</a>
     </div>
-    {% endif %}
+    {%- endif -%}
   </div>
 </section>
 
@@ -31,9 +31,9 @@ title: "Home"
     <div class="category-strip">
       <h2 class="section-title">Poems</h2>
       <div class="post-grid">
-        {% for post in collections.poems | limit(6) %}
-          {% include "postcard.njk" %}
-        {% endfor %}
+        {%- for post in collections.poems limit: 6 -%}
+          {%- include "postcard.liquid" -%}
+        {%- endfor -%}
       </div>
       <div class="see-all"><a href="/poems/" class="btn-outline">All poems →</a></div>
     </div>

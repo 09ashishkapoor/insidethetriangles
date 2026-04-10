@@ -4,7 +4,7 @@ slug: "maa-adya-the-red-pill-2"
 date: "2025-03-26T00:09:33.000Z"
 tags: ["Poems"]
 feature_image: "/images/2025/03/2371fb4e-510b-4098-a079-6e2b5afd6345-1.png"
-layout: "post.njk"
+layout: "post.liquid"
 ---
 
 <p>Adya Ma's fiery gaze comes down<br>

@@ -1,5 +1,5 @@
 ---
-layout: "base.njk"
+layout: "base.liquid"
 title: "Articles"
 permalink: /articles/
 ---
@@ -8,8 +8,8 @@ permalink: /articles/
     <h1>All Posts</h1>
   </header>
   <div class="post-grid">
-    {% for post in collections.allPosts %}
-      {% include "postcard.njk" %}
-    {% endfor %}
+    {%- for post in collections.allPosts -%}
+      {%- include "postcard.liquid" -%}
+    {%- endfor -%}
   </div>
 </div>

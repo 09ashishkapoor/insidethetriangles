@@ -2,23 +2,59 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --red:        #af0202;
-  --red-dark:   #7a0101;
-  --gold:       #c9a84c;
-  --cream:      #fdf6ec;
-  --ink:        #1a1008;
-  --ink-light:  #4a3728;
-  --muted:      #8a7060;
-  --border:     #e8d9c4;
-  --bg:         #fffdf8;
-  --card-bg:    #ffffff;
+  --red:        #e63946;
+  --red-dark:   #ff6b6b;
+  --gold:       #f4d58d;
+  --cream:      #1a1a1a;
+  --ink:        #f5f5f5;
+  --ink-light:  #b0b0b0;
+  --muted:      #6b6b6b;
+  --border:     #333;
+  --bg:         #0f0f0f;
+  --card-bg:    #1a1a1a;
+  --shadow:     0 2px 12px rgba(0,0,0,0.4);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.5);
   --radius:     8px;
-  --shadow:     0 2px 12px rgba(26,16,8,0.08);
-  --shadow-lg:  0 8px 32px rgba(26,16,8,0.14);
   --font-body:  'Georgia', 'Times New Roman', serif;
   --font-ui:    system-ui, -apple-system, sans-serif;
   --max-w:      1120px;
   --post-max-w: 740px;
+  --logo-text:  #f5f5f5;
+  --hero-title: #f5f5f5;
+  --hero-sub:   rgba(245,245,245,0.72);
+}
+
+.hero { background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%); }
+.hero-title { color: var(--hero-title); }
+.hero-sub { color: var(--hero-sub); }
+.post-content blockquote { background: #1f1f1f; }
+.post-content th { background: #1f1f1f; }
+.post-content .kg-callout-card { background: #1f1f1f; }
+.site-header, .site-footer { background: #0a0a0a; }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --red:        #af0202;
+    --red-dark:   #7a0101;
+    --gold:       #c9a84c;
+    --cream:      #fdf6ec;
+    --ink:        #1a1008;
+    --ink-light:  #4a3728;
+    --muted:      #8a7060;
+    --border:     #e8d9c4;
+    --bg:         #fffdf8;
+    --card-bg:    #ffffff;
+    --shadow:     0 2px 12px rgba(26,16,8,0.08);
+    --shadow-lg:  0 8px 32px rgba(26,16,8,0.14);
+    --logo-text:  #fdf6ec;
+    --hero-title: #fdf6ec;
+    --hero-sub:   rgba(253,246,236,0.72);
+  }
+  .hero { background: linear-gradient(160deg, var(--ink) 0%, #3a1a10 100%); }
+  .post-content blockquote { background: var(--cream); }
+  .post-content th { background: var(--cream); }
+  .post-content .kg-callout-card { background: var(--cream); }
+  .site-header, .site-footer { background: var(--ink); }
 }
 
 html { font-size: 18px; scroll-behavior: smooth; }
@@ -63,7 +99,7 @@ a:hover { color: var(--red-dark); text-decoration: underline; }
   font-family: var(--font-ui);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--cream);
+  color: var(--logo-text);
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
@@ -106,14 +142,14 @@ a:hover { color: var(--red-dark); text-decoration: underline; }
   font-size: 2.4rem;
   font-weight: normal;
   letter-spacing: 0.01em;
-  color: var(--cream);
+  color: var(--hero-title);
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
 
 .hero-sub {
   font-size: 1.05rem;
-  color: rgba(253,246,236,0.72);
+  color: var(--hero-sub);
   line-height: 1.6;
   font-style: italic;
 }
@@ -239,6 +275,19 @@ a.tag:hover { background: rgba(175,2,2,0.14); }
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
+}
+.page-feature-image {
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+.page-feature-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 300px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
 }
 .page-header h1 {
   font-size: 2rem;
@@ -409,4 +458,29 @@ a.tag:hover { background: rgba(175,2,2,0.14); }
 
   .header-inner { padding: 0 1rem; }
   .site-logo .logo-text { font-size: 0.92rem; }
+}
+
+/* ─── Native Dark Mode ───────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:        #e63946;
+    --red-dark:   #ff6b6b;
+    --gold:       #f4d58d;
+    --cream:      #1a1a1a;
+    --ink:        #f5f5f5;
+    --ink-light:  #b0b0b0;
+    --muted:      #6b6b6b;
+    --border:     #333;
+    --bg:         #0f0f0f;
+    --card-bg:    #1a1a1a;
+    --shadow:     0 2px 12px rgba(0,0,0,0.4);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  .hero { background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%); }
+
+  .post-content blockquote { background: #1f1f1f; }
+  .post-content th { background: #1f1f1f; }
+  .post-content .kg-callout-card { background: #1f1f1f; }
+  .site-header, .site-footer { background: #0a0a0a; }
 }
