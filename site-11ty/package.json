@@ -5,14 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy",
-    "dev": "eleventy --serve --incremental"
+    "build": "node ./scripts/clean-output.mjs && eleventy",
+    "dev": "eleventy --serve --incremental",
+    "validate": "npm run validate:syntax && npm run build && npm run validate:browser && npm run validate:links",
+    "validate:browser": "playwright test",
+    "validate:links": "node ./scripts/check-links.mjs",
+    "validate:smoke": "npm run build && playwright test tests/smoke.spec.js",
+    "validate:a11y": "npm run build && playwright test tests/a11y.spec.js",
+    "validate:visual": "npm run build && playwright test tests/visual.spec.js",
+    "validate:visual:update": "npm run build && playwright test tests/visual.spec.js --update-snapshots",
+    "validate:perf": "npm run build && playwright test tests/performance.spec.js",
+    "validate:syntax": "node --check playwright.config.js && node --check scripts/clean-output.mjs && node --check scripts/check-links.mjs && node --check scripts/serve-static.mjs && node --check tests/smoke.spec.js && node --check tests/a11y.spec.js && node --check tests/visual.spec.js && node --check tests/performance.spec.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
+    "@11ty/eleventy": "^3.1.5",
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.55.0"
   }
 }

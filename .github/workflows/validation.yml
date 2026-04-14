@@ -1,0 +1,91 @@
+name: Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  browser-validation:
+    name: Browser validation
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: site-11ty
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: site-11ty/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium
+
+      - name: Run syntax checks
+        run: npm run validate:syntax
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Run browser validation
+        run: npm run validate:browser
+
+      - name: Upload Playwright artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            site-11ty/playwright-report
+            site-11ty/test-results
+
+  link-check:
+    name: Link check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: site-11ty/package-lock.json
+
+      - name: Install site dependencies
+        working-directory: site-11ty
+        run: npm ci
+
+      - name: Build static site
+        working-directory: site-11ty
+        run: npm run build
+
+      - name: Check README and key entry pages
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: >-
+            --no-progress
+            --verbose
+            --max-concurrency 4
+            --retry-wait-time 5
+            --max-retries 2
+            --exclude-mail
+            README.md
+            site-11ty/_site/index.html
+            site-11ty/_site/about/index.html
+            site-11ty/_site/articles/index.html
+            site-11ty/_site/poems/index.html

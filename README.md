@@ -64,6 +64,26 @@ npm run build
 
 Output goes to `_site/`.
 
+## Validation Baseline
+
+This repo includes a small browser-first validation baseline for the Eleventy site.
+
+```bash
+cd site-11ty
+npm install
+npx playwright install chromium
+npm run validate
+```
+
+To intentionally refresh visual baselines after an approved design change:
+
+```bash
+cd site-11ty
+npm run validate:visual:update
+```
+
+See [`docs/validation-baseline.md`](./docs/validation-baseline.md) for the standardized pattern, CI behavior, reuse guidance, and snapshot update process.
+
 ## Writing a Post
 
 Create a new `.md` file in `site-11ty/src/posts/`:
