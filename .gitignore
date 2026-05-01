@@ -18,3 +18,6 @@ Desktop.ini
 
 *.log
 *.tmp
+.pi/extensions/guardrails.json
+site-11ty/.pi-lens/turn-state.json
+site-11ty/.pi-lens/cache/javascript-rules-v1.json

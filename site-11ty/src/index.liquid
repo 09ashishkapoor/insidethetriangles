@@ -1,12 +1,14 @@
 ---
 layout: "base.liquid"
 title: "Home"
+description: "Devotional poems, stories, and spiritual reflections on Ma Adya Mahakali, Kali, Bhairava, and sacred creativity by Ashish Kapoor."
 ---
 <section class="hero">
   <div class="hero-inner">
-    <img src="/images/2025/06/boo2.jpg" alt="Inside The Triangles" class="hero-logo" />
+    {%- assign heroImage = "/images/2025/06/boo2.jpg" -%}
+    <img src="{{ heroImage }}" alt="Inside The Triangles devotional artwork" class="hero-logo" {{ heroImage | imageAttrs }} loading="eager" decoding="async" fetchpriority="high" />
     <h1 class="hero-title">Inside The Triangles</h1>
-    <p class="hero-sub">Thoughts, stories and poems about Ma Adya Mahakali and Bhairava</p>
+    <p class="hero-sub">Devotional poems, stories, and reflections about Ma Adya Mahakali, Kali, Bhairava, and sacred creativity.</p>
   </div>
 </section>
 

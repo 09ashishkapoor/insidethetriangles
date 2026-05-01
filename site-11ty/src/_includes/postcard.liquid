@@ -6,7 +6,7 @@
     {%- else -%}
       {%- assign imgSrc = post.data.feature_image -%}
     {%- endif -%}
-    <img src="{{ imgSrc }}" alt="{{ post.data.title }}" class="postcard-img" loading="lazy" />
+    <img src="{{ imgSrc }}" alt="{{ post.data.title }}" class="postcard-img" {{ imgSrc | imageAttrs }} loading="lazy" decoding="async" />
   </a>
   {%- endif -%}
   <div class="postcard-body">

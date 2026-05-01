@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  {%- assign pageTitle = title | append: " — " | append: site.name -%}
-  {%- if pageTitle == " — " | append: site.name -%}{%- assign pageTitle = site.name -%}{%- endif -%}
-  {%- assign pageDesc = excerpt | default: site.description -%}
+  {%- if page.url == "/" -%}
+    {%- assign pageTitle = site.name -%}
+  {%- elsif title -%}
+    {%- assign pageTitle = title | append: " — " | append: site.name -%}
+  {%- else -%}
+    {%- assign pageTitle = site.name -%}
+  {%- endif -%}
+  {%- assign explicitDesc = description | default: excerpt -%}
+  {%- assign pageDesc = explicitDesc | seoDescription: content, site.description -%}
   {%- assign pageUrl = site.url | append: page.url -%}
   {%- if feature_image -%}
     {%- assign pageImage = site.url | append: feature_image -%}
@@ -31,6 +37,7 @@
   <meta property="og:image" content="{{ pageImage }}" />
   {%- if date -%}
   <meta property="article:published_time" content="{{ date | isoDate }}" />
+  <meta property="article:modified_time" content="{{ date | isoDate }}" />
   {%- endif -%}
 
   <!-- Twitter / X -->
@@ -43,21 +50,63 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    {%- if layout == "post.liquid" %}
-    "@type": "BlogPosting",
-    "headline": "{{ title }}",
-    "description": "{{ pageDesc }}",
-    "url": "{{ pageUrl }}",
-    "image": "{{ pageImage }}",
-    "datePublished": "{{ date | isoDate }}",
-    "author": { "@type": "Person", "name": "KaliPutra_AshishKapoor" },
-    "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" }
-    {%- else %}
-    "@type": "WebSite",
-    "name": "{{ site.name }}",
-    "url": "{{ site.url }}",
-    "description": "{{ site.description }}"
-    {%- endif %}
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#organization",
+        "name": {{ site.name | json }},
+        "url": "{{ site.url }}",
+        "description": {{ site.description | json }},
+        "logo": "{{ site.url }}/images/2025/11/kalabhairava.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "name": {{ site.name | json }},
+        "url": "{{ site.url }}",
+        "description": {{ site.description | json }},
+        "publisher": { "@id": "{{ site.url }}/#organization" }
+      },
+      {%- if layout == "post.liquid" %}
+      {
+        "@type": "BlogPosting",
+        "@id": "{{ pageUrl }}#article",
+        "headline": {{ title | json }},
+        "description": {{ pageDesc | json }},
+        "url": "{{ pageUrl }}",
+        "mainEntityOfPage": "{{ pageUrl }}",
+        "image": "{{ pageImage }}",
+        "datePublished": "{{ date | isoDate }}",
+        "dateModified": "{{ date | isoDate }}",
+        "author": {
+          "@type": "Person",
+          "@id": "{{ site.url }}/about/#author",
+          "name": "KaliPutra_AshishKapoor",
+          "url": "{{ site.url }}/about/"
+        },
+        "publisher": { "@id": "{{ site.url }}/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "{{ pageUrl }}#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Articles", "item": "{{ site.url }}/articles/" },
+          { "@type": "ListItem", "position": 3, "name": {{ title | json }}, "item": "{{ pageUrl }}" }
+        ]
+      }
+      {%- else %}
+      {
+        "@type": "WebPage",
+        "@id": "{{ pageUrl }}#webpage",
+        "name": {{ pageTitle | json }},
+        "description": {{ pageDesc | json }},
+        "url": "{{ pageUrl }}",
+        "isPartOf": { "@id": "{{ site.url }}/#website" },
+        "publisher": { "@id": "{{ site.url }}/#organization" }
+      }
+      {%- endif %}
+    ]
   }
   </script>
 
@@ -71,7 +120,7 @@
       <a href="/" class="site-logo">
         <span class="logo-text">Inside The Triangles</span>
       </a>
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
         <a href="/poems/">Poems</a>
         <a href="/articles/">Articles</a>

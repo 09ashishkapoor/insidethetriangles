@@ -3,17 +3,35 @@ layout: "base.liquid"
 ---
 <article class="post">
   <div class="post-container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/articles/">Articles</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ title }}</span>
+    </nav>
+
     <header class="post-header">
       {%- if feature_image -%}
       <div class="post-feature-image">
-        <img src="{{ feature_image }}" alt="{{ title }}" class="post-feature-img" />
+        <img src="{{ feature_image }}" alt="{{ title }}" class="post-feature-img" {{ feature_image | imageAttrs }} loading="eager" decoding="async" fetchpriority="high" />
       </div>
       {%- endif -%}
 
       {%- if tags.size > 0 -%}
       <div class="post-tags">
         {%- for tag in tags -%}
-        <a href="/tag/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+          {%- assign tagUrl = "" -%}
+          {%- if tag == "Poems" -%}
+            {%- assign tagUrl = "/poems/" -%}
+          {%- elsif tag == "short articles" or tag == "long articles" or tag == "updates" -%}
+            {%- assign tagUrl = "/articles/" -%}
+          {%- endif -%}
+          {%- if tagUrl != "" -%}
+        <a href="{{ tagUrl }}" class="tag">{{ tag }}</a>
+          {%- else -%}
+        <span class="tag">{{ tag }}</span>
+          {%- endif -%}
         {%- endfor -%}
       </div>
       {%- endif -%}
@@ -32,7 +50,23 @@ layout: "base.liquid"
     </div>
 
     <footer class="post-footer">
-      <a href="/" class="back-link">← Back to all posts</a>
+      <div class="post-navigation">
+        <a href="/" class="back-link">← Back to all posts</a>
+        <a href="/poems/" class="back-link">Browse poems →</a>
+      </div>
+
+      <section class="related-posts" aria-labelledby="related-posts-title">
+        <h2 id="related-posts-title">More from Inside The Triangles</h2>
+        <ul>
+          {%- assign relatedCount = 0 -%}
+          {%- for related in collections.allPosts -%}
+            {%- if related.url != page.url and relatedCount < 3 -%}
+              {%- assign relatedCount = relatedCount | plus: 1 -%}
+          <li><a href="{{ related.url }}">{{ related.data.title }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </section>
     </footer>
   </div>
 </article>

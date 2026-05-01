@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://insidethetriangles.com/sitemap.xml
+
+# Optional AI discovery aid, not a crawl-control directive:
+# https://insidethetriangles.com/llms.txt
