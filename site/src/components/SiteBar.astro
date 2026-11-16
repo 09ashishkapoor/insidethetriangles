@@ -1,0 +1,23 @@
+---
+import Trikona from "./Trikona.astro";
+const path = Astro.url.pathname;
+const here = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+---
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="/">
+      <Trikona class="brand-mark" />
+      <span>Inside The Triangles</span>
+    </a>
+    <nav class="top" aria-label="Primary">
+      <a href="/#gate-kali" aria-current={here("/#gate-kali") ? "page" : undefined}>Kali</a>
+      <a href="/#gate-adya" aria-current={here("/#gate-adya") ? "page" : undefined}>Adya Ma</a>
+      <a href="/#gate-bhairava" aria-current={here("/#gate-bhairava") ? "page" : undefined}>Bhairava</a>
+      <a href="/#gate-mahakala" aria-current={here("/#gate-mahakala") ? "page" : undefined}>Mahakala</a>
+      <a href="/poems/" aria-current={here("/poems/") ? "page" : undefined}>Poems</a>
+      <a href="/articles/" aria-current={here("/articles/") ? "page" : undefined}>Articles</a>
+      <a href="/about/" aria-current={here("/about/") ? "page" : undefined}>About</a>
+    </nav>
+    <div class="bar-tools"><a href="/feed.xml">Feed</a></div>
+  </div>
+</header>

@@ -1,15 +1,32 @@
 # Inside The Triangles
 
-[![Built with Eleventy](https://img.shields.io/badge/Built%20with-Eleventy-222222?logo=eleventy&logoColor=white)](https://www.11ty.dev/)
-[![Deployed on Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com/)
+[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
+[![Deploy: Cloudflare Workers](https://img.shields.io/badge/Deploy-Cloudflare%20Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Live Site](https://img.shields.io/badge/Live-insidethetriangles.com-8B0000)](https://insidethetriangles.com)
 
-A devotional writing project built with [Eleventy (11ty)](https://www.11ty.dev/) and published at [insidethetriangles.com](https://insidethetriangles.com).
+A devotional writing project published at [insidethetriangles.com](https://insidethetriangles.com).
 
 > Thoughts, stories, and poems centered on Ma Adya Mahakali and Bhairava.
 
----
+## New site — Astro 7
+
+The production site is moving to **Astro 7 + Direction 2 (The Yantra)** in [`site/`](./site). All 32 existing
+URLs are preserved; the 32-row taxonomy is approved; the build, URL parity, a11y and links are green.
+See [`site/README.md`](./site/README.md) for the runbook.
+
+```bash
+cd site
+npm ci
+npm run check
+npm run build
+npm test
+```
+
+`site-11ty/` is the **Cloudflare Pages rollback** until the Workers preview is accepted. Do not delete it or
+edit its content during the transition. The sections below document that rollback.
+
+> **Rollback:** the sections below describe the Eleventy site on Cloudflare Pages.
 
 ## Features
 
@@ -84,26 +101,45 @@ npm run validate:visual:update
 
 See [`docs/validation-baseline.md`](./docs/validation-baseline.md) for the standardized pattern, CI behavior, reuse guidance, and snapshot update process.
 
-## Writing a Post
+## Publishing a Post
 
-Create a new `.md` file in `site-11ty/src/posts/`:
+Posts are published through one command, which validates the draft, resizes the image, draws a share
+card, writes the file and builds the site. Nothing is pushed to a remote.
+
+```bash
+cd site-11ty
+npm install                      # first time only
+npm run publish -- content/inbox/my-piece.md --dry   # validate and preview
+npm run publish -- content/inbox/my-piece.md         # write it
+```
+
+A draft carries only what the writer knows:
 
 ```md
 ---
-title: "Your Post Title"
-slug: "your-post-slug"
-date: "2026-01-01T00:00:00.000Z"
-feature_image: "/images/your-image.jpg"
-excerpt: "A short description for previews."
-tags:
-  - Poems
-layout: "post.liquid"
+title: "Be a Child in the lap of Ma Kali"
+deity: kali                      # adya | kali | bhairava | mahakala (two allowed: [kali, bhairava])
+form: short                      # poem | short | long | stotram | update
+date: 2025-06-10
+excerpt: "Devotion as the innocence of a child, and what surrender erases."
+image: images/child-kali.jpg     # optional, relative to the draft
 ---
 
-Your content here...
+Body in Markdown. Poems are one line per line, a blank line between stanzas.
 ```
 
-Images go in `site-11ty/public/images/`.
+`slug`, `layout`, reading time, the final image path and the share card are computed — never authored.
+The full contract, including the verse and stotram conventions and what every error means, is in
+[`site-11ty/content/PUBLISHING.md`](./site-11ty/content/PUBLISHING.md). It is written to be followed by
+an agent as much as by a person.
+
+Auditing the archive against the same rules:
+
+```bash
+cd site-11ty
+npm run content:check            # report
+npm run content:report           # …and write content/migration-report.md
+```
 
 ## Deployment (Cloudflare Pages)
 

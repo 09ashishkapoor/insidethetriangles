@@ -1,0 +1,32 @@
+{
+  "name": "insidethetriangles",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/cards.mjs && astro build && node scripts/check-output.mjs",
+    "build:ci": "astro build && node scripts/check-output.mjs",
+    "build:fast": "astro build",
+    "preview": "astro preview",
+    "check": "astro check && node scripts/validate-content.mjs",
+    "cards": "node scripts/cards.mjs",
+    "test": "playwright test",
+    "deploy:preview": "npm run build && wrangler deploy --config wrangler.preview.jsonc",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/markdown-satteri": "0.4.10",
+    "astro": "7.4.12",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.1",
+    "@types/node": "^26.6.6",
+    "playwright": "1.65.1",
+    "typescript": "5.9.3",
+    "wrangler": "4.162.0"
+  }
+}

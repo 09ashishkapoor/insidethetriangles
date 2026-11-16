@@ -6,6 +6,10 @@ site-11ty/_site/
 site-11ty/.cache/
 site-11ty/playwright-report/
 site-11ty/test-results/
+site-11ty/content/published/
+
+# design review scratch: screenshots, reference boards, one-off tools
+.huashu-design/
 
 .DS_Store
 Thumbs.db

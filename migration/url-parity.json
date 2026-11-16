@@ -1,0 +1,408 @@
+{
+  "generated_at": "2026-11-16T04:39:25.030Z",
+  "base_url": "http://127.0.0.1:4173",
+  "build": {
+    "files_written_by_eleventy": 38,
+    "html_pages": 36,
+    "site_files_total": 91
+  },
+  "text_sha256_definition": "inner HTML of div.post-content; strip script/style; block tags and <br> become spaces; inline tags (strong/em/a/span/code) are removed without adding spaces; decode entities; collapse whitespace; preserve case",
+  "counts": {
+    "urls": 39,
+    "status_200": 39,
+    "posts": 32,
+    "hashed_post_bodies": 32
+  },
+  "urls": [
+    {
+      "url": "/",
+      "source_file": "src/index.liquid",
+      "title": "Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/",
+      "h1": "Inside The Triangles",
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    },
+    {
+      "url": "/about/",
+      "source_file": "src/about.liquid",
+      "title": "About — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/about/",
+      "h1": "About",
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    },
+    {
+      "url": "/poems/",
+      "source_file": "src/poems.liquid",
+      "title": "Poems — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/poems/",
+      "h1": "Poems",
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    },
+    {
+      "url": "/articles/",
+      "source_file": "src/articles.liquid",
+      "title": "Articles — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/articles/",
+      "h1": "All Posts",
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    },
+    {
+      "url": "/posts/update-migration-complete-2026-03-30/",
+      "source_file": "src/posts/update-migration-complete-2026-03-30.md",
+      "title": "Update — 11ty migration complete — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/update-migration-complete-2026-03-30/",
+      "h1": "Update — 11ty migration complete",
+      "status": 200,
+      "text_sha256": "44dbd48532c16a6fbbaa1e41054db854fb3fed60b678a4856edb1500ddc078d0",
+      "text_chars": 291
+    },
+    {
+      "url": "/posts/kalabhairava-ashtakam-breakdown-of-verses-with-commentary-in-english/",
+      "source_file": "src/posts/kalabhairava-ashtakam-breakdown-of-verses-with-commentary-in-english.md",
+      "title": "Kalabhairava Ashtakam: Breakdown of Verses with Commentary in English — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/kalabhairava-ashtakam-breakdown-of-verses-with-commentary-in-english/",
+      "h1": "Kalabhairava Ashtakam: Breakdown of Verses with Commentary in English",
+      "status": 200,
+      "text_sha256": "61f1a72b6c5212ad6210db6a28f14705f7a5e0a9a1e027668c16213d3d1dacbe",
+      "text_chars": 20436
+    },
+    {
+      "url": "/posts/shri-kali-tandava-stotram-translation-and-commentary/",
+      "source_file": "src/posts/shri-kali-tandava-stotram-translation-and-commentary.md",
+      "title": "Shri Kali Tandava Stotram: Translation and Commentary — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/shri-kali-tandava-stotram-translation-and-commentary/",
+      "h1": "Shri Kali Tandava Stotram: Translation and Commentary",
+      "status": 200,
+      "text_sha256": "4f1a99af70a205d9f82eabf5bf7aadeac36bc255b6e7fb0af0ce3d4828aa18ca",
+      "text_chars": 16257
+    },
+    {
+      "url": "/posts/bhairava-the-light-within/",
+      "source_file": "src/posts/bhairava-the-light-within.md",
+      "title": "Bhairava - The Light Within — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/bhairava-the-light-within/",
+      "h1": "Bhairava - The Light Within",
+      "status": 200,
+      "text_sha256": "de6b2c2987521e19fb41fd5ad75e7ee7724f7720aff5027b900eb2ea5393c10e",
+      "text_chars": 282
+    },
+    {
+      "url": "/posts/the-green-weaver-of-shadows-2/",
+      "source_file": "src/posts/the-green-weaver-of-shadows-2.md",
+      "title": "The Green Weaver of Shadows — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/the-green-weaver-of-shadows-2/",
+      "h1": "The Green Weaver of Shadows",
+      "status": 200,
+      "text_sha256": "848390172c65a1f239f1218c7976da421cb9e6dcda1bfeb71ef22f3709d237da",
+      "text_chars": 1102
+    },
+    {
+      "url": "/posts/the-serpents-heart/",
+      "source_file": "src/posts/the-serpents-heart.md",
+      "title": "The Serpent’s Heart — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/the-serpents-heart/",
+      "h1": "The Serpent’s Heart",
+      "status": 200,
+      "text_sha256": "9d82359d40dd27356b9963b7d2fbc42a1d17bc1ea973e528aea1eab4c33b3f60",
+      "text_chars": 947
+    },
+    {
+      "url": "/posts/mahakala-and-kalabhairava-simplified-2/",
+      "source_file": "src/posts/mahakala-and-kalabhairava-simplified-2.md",
+      "title": "Mahakala and KalaBhairava - Simplified — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/mahakala-and-kalabhairava-simplified-2/",
+      "h1": "Mahakala and KalaBhairava - Simplified",
+      "status": 200,
+      "text_sha256": "2248debc341e7c16af4db974c600aeabfd322401773b160bdb18c1ead23b4373",
+      "text_chars": 1805
+    },
+    {
+      "url": "/posts/the-eternal-dance-of-creation-and-destruction-maa-kali-and-parashuramas-cosmic-mission/",
+      "source_file": "src/posts/the-eternal-dance-of-creation-and-destruction-maa-kali-and-parashuramas-cosmic-mission.md",
+      "title": "The Eternal Dance of Creation and Destruction: Maa Kali and Parashurama’s Cosmic Mission — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/the-eternal-dance-of-creation-and-destruction-maa-kali-and-parashuramas-cosmic-mission/",
+      "h1": "The Eternal Dance of Creation and Destruction: Maa Kali and Parashurama’s Cosmic Mission",
+      "status": 200,
+      "text_sha256": "e12a5440dc21c0f3259eb513b4ba0e260f3165fe02ae66d5b7e81090bb21971d",
+      "text_chars": 3703
+    },
+    {
+      "url": "/posts/navigating-the-dance-of-material-and-spiritual-a-path-through-divine-feminine-wisdom/",
+      "source_file": "src/posts/navigating-the-dance-of-material-and-spiritual-a-path-through-divine-feminine-wisdom.md",
+      "title": "Navigating the Dance of Material and Spiritual: A Path Through Divine Feminine Wisdom — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/navigating-the-dance-of-material-and-spiritual-a-path-through-divine-feminine-wisdom/",
+      "h1": "Navigating the Dance of Material and Spiritual: A Path Through Divine Feminine Wisdom",
+      "status": 200,
+      "text_sha256": "3b1e1b3e33f52069c9207d8a6fcbfedd15cd4368c5f167d01d3707f471782183",
+      "text_chars": 3848
+    },
+    {
+      "url": "/posts/navigating-spiritual-uncertainty-embracing-collapse-and-transformation/",
+      "source_file": "src/posts/navigating-spiritual-uncertainty-embracing-collapse-and-transformation.md",
+      "title": "Navigating Spiritual Uncertainty: Embracing Collapse and Transformation — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/navigating-spiritual-uncertainty-embracing-collapse-and-transformation/",
+      "h1": "Navigating Spiritual Uncertainty: Embracing Collapse and Transformation",
+      "status": 200,
+      "text_sha256": "7ce6f186f49dc11dcbb29f3e6f1f441bd32fcec45d8b36b867bbabca8311163a",
+      "text_chars": 3288
+    },
+    {
+      "url": "/posts/bhairava-the-veil-keeper/",
+      "source_file": "src/posts/bhairava-the-veil-keeper.md",
+      "title": "Bhairava: The Veil keeper — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/bhairava-the-veil-keeper/",
+      "h1": "Bhairava: The Veil keeper",
+      "status": 200,
+      "text_sha256": "1b2d8e7e5f8e1b2dc81bef9dfb365f4d76cc6e2fdb9b74202ef529cc8985a57e",
+      "text_chars": 995
+    },
+    {
+      "url": "/posts/the-alchemy-of-desire-transforming-physicality-into-spiritual-mastery/",
+      "source_file": "src/posts/the-alchemy-of-desire-transforming-physicality-into-spiritual-mastery.md",
+      "title": "The Alchemy of Desire: Transforming Physicality into Spiritual Mastery — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/the-alchemy-of-desire-transforming-physicality-into-spiritual-mastery/",
+      "h1": "The Alchemy of Desire: Transforming Physicality into Spiritual Mastery",
+      "status": 200,
+      "text_sha256": "91ffed96d4b7373331619f78f0bb9ad999092d87e976ab36122021068e03dd13",
+      "text_chars": 3075
+    },
+    {
+      "url": "/posts/embracing-simplicity-and-devotion-in-kali-yuga-a-path-forward/",
+      "source_file": "src/posts/embracing-simplicity-and-devotion-in-kali-yuga-a-path-forward.md",
+      "title": "Embracing Simplicity and Devotion in Kali Yuga: A Path Forward — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/embracing-simplicity-and-devotion-in-kali-yuga-a-path-forward/",
+      "h1": "Embracing Simplicity and Devotion in Kali Yuga: A Path Forward",
+      "status": 200,
+      "text_sha256": "12f1f0371f62e0b78d2831fc7ab5c85fbc7723e3d09e902d9454bfd15a7b6433",
+      "text_chars": 2642
+    },
+    {
+      "url": "/posts/the-reawakening-of-kanda-bhairava-sacred-order-and-cosmic-balance/",
+      "source_file": "src/posts/the-reawakening-of-kanda-bhairava-sacred-order-and-cosmic-balance.md",
+      "title": "The Reawakening of Kanda Bhairava: Sacred Order and Cosmic Balance — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/the-reawakening-of-kanda-bhairava-sacred-order-and-cosmic-balance/",
+      "h1": "The Reawakening of Kanda Bhairava: Sacred Order and Cosmic Balance",
+      "status": 200,
+      "text_sha256": "23574d13e88a1523f3af701498de3928d8dbd7d4953bda408106f43b4949608c",
+      "text_chars": 4511
+    },
+    {
+      "url": "/posts/the-timeless-path-of-kand-bhairava-awakening-to-the-tantric-truth-2/",
+      "source_file": "src/posts/the-timeless-path-of-kand-bhairava-awakening-to-the-tantric-truth-2.md",
+      "title": "The Timeless Path of Cand Bhairava: Awakening to the Tantric Truth — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/the-timeless-path-of-kand-bhairava-awakening-to-the-tantric-truth-2/",
+      "h1": "The Timeless Path of Cand Bhairava: Awakening to the Tantric Truth",
+      "status": 200,
+      "text_sha256": "555ceae54d1f57833aa06eb7cb06a4554e40beca34f9ffa641e2766961d5f94b",
+      "text_chars": 3062
+    },
+    {
+      "url": "/posts/bhairava-nama-japa-2/",
+      "source_file": "src/posts/bhairava-nama-japa-2.md",
+      "title": "Bhairava - Nama Japa — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/bhairava-nama-japa-2/",
+      "h1": "Bhairava - Nama Japa",
+      "status": 200,
+      "text_sha256": "b04fb809f4a5c8b1dda36465d1df24e56716b5510dc319f3965e679ac46e5448",
+      "text_chars": 1671
+    },
+    {
+      "url": "/posts/bhairava-no-fear-2/",
+      "source_file": "src/posts/bhairava-no-fear-2.md",
+      "title": "Bhairava No Fear — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/bhairava-no-fear-2/",
+      "h1": "Bhairava No Fear",
+      "status": 200,
+      "text_sha256": "cbc640b8f4707f743b5b6b6ecca8deb03278e655ebe3cb2c7c3407dfd683f11d",
+      "text_chars": 870
+    },
+    {
+      "url": "/posts/be-a-child-in-the-lap-of-ma-kali/",
+      "source_file": "src/posts/be-a-child-in-the-lap-of-ma-kali.md",
+      "title": "Be a Child in the lap of Ma Kali — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/be-a-child-in-the-lap-of-ma-kali/",
+      "h1": "Be a Child in the lap of Ma Kali",
+      "status": 200,
+      "text_sha256": "96afec0fe4bd5532fe149c05c7f6dcd7227501b3606c79c8fb2bf2091ebd60ad",
+      "text_chars": 1117
+    },
+    {
+      "url": "/posts/home-your-sacred-ground/",
+      "source_file": "src/posts/home-your-sacred-ground.md",
+      "title": "Home - Your Sacred Ground — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/home-your-sacred-ground/",
+      "h1": "Home - Your Sacred Ground",
+      "status": 200,
+      "text_sha256": "de0da1316e44efcf45548c77ebc033703d5d43354779dacb9a1c21a27df84715",
+      "text_chars": 3853
+    },
+    {
+      "url": "/posts/kali-is-krishna-is-kali/",
+      "source_file": "src/posts/kali-is-krishna-is-kali.md",
+      "title": "Kali is Krishna is Kali — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/kali-is-krishna-is-kali/",
+      "h1": "Kali is Krishna is Kali",
+      "status": 200,
+      "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "text_chars": 0
+    },
+    {
+      "url": "/posts/skanda-the-storm/",
+      "source_file": "src/posts/skanda-the-storm.md",
+      "title": "Skanda the Storm — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/skanda-the-storm/",
+      "h1": "Skanda the Storm",
+      "status": 200,
+      "text_sha256": "7943effaee7453e36d204cc9e46c59440dfa3a0bf5c6e6ad9212d6eb06bf82fa",
+      "text_chars": 561
+    },
+    {
+      "url": "/posts/bhairavas-call/",
+      "source_file": "src/posts/bhairavas-call.md",
+      "title": "Bhairava’s Call — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/bhairavas-call/",
+      "h1": "Bhairava’s Call",
+      "status": 200,
+      "text_sha256": "8a3addb0db5412e25ceac7cae0e13242262e2dc9ad4f8647b696552c3fa03276",
+      "text_chars": 524
+    },
+    {
+      "url": "/posts/bhairava-unbound/",
+      "source_file": "src/posts/bhairava-unbound.md",
+      "title": "Bhairava, Unbound — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/bhairava-unbound/",
+      "h1": "Bhairava, Unbound",
+      "status": 200,
+      "text_sha256": "41e6963b7ff2a7b1dade8268824a82cbf963acfd44ba3cf89ff27984ee3d1846",
+      "text_chars": 619
+    },
+    {
+      "url": "/posts/adyas-call/",
+      "source_file": "src/posts/adyas-call.md",
+      "title": "Adya's Call — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/adyas-call/",
+      "h1": "Adya's Call",
+      "status": 200,
+      "text_sha256": "72274beefe178e6428dad360ea506c1954f32811247f9314e4940d9b829e686a",
+      "text_chars": 618
+    },
+    {
+      "url": "/posts/adya-ma-my-mother-divine/",
+      "source_file": "src/posts/adya-ma-my-mother-divine.md",
+      "title": "Adya Ma, My Mother Divine — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/adya-ma-my-mother-divine/",
+      "h1": "Adya Ma, My Mother Divine",
+      "status": 200,
+      "text_sha256": "044b7cd8e1dfc0e7aea8aca3801b4242903fbff4bf8f0cd0a8c80c9da09fa04d",
+      "text_chars": 405
+    },
+    {
+      "url": "/posts/adya-the-originless-one/",
+      "source_file": "src/posts/adya-the-originless-one.md",
+      "title": "Adya: The Originless One — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/adya-the-originless-one/",
+      "h1": "Adya: The Originless One",
+      "status": 200,
+      "text_sha256": "8e5c16f2583471e73f9c12a3c33bf0db7b54b8472e6e4c6869b60a53c99c35e2",
+      "text_chars": 1103
+    },
+    {
+      "url": "/posts/ode-to-adya-ma/",
+      "source_file": "src/posts/ode-to-adya-ma.md",
+      "title": "Ode to Adya Ma — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/ode-to-adya-ma/",
+      "h1": "Ode to Adya Ma",
+      "status": 200,
+      "text_sha256": "32ad13c7b7451cf53158c4f0f5d298fda29cfe1f11f049fcd17db1cf73428fe6",
+      "text_chars": 522
+    },
+    {
+      "url": "/posts/adya-ma-the-primordial-mother/",
+      "source_file": "src/posts/adya-ma-the-primordial-mother.md",
+      "title": "Adya Ma: The Primordial Mother — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/adya-ma-the-primordial-mother/",
+      "h1": "Adya Ma: The Primordial Mother",
+      "status": 200,
+      "text_sha256": "cec2f7903946de92d1c85872c7a2d3890970ff65e2b889115b79445e15931168",
+      "text_chars": 1134
+    },
+    {
+      "url": "/posts/maa-adya-the-red-pill-2/",
+      "source_file": "src/posts/maa-adya-the-red-pill-2.md",
+      "title": "Maa Adya : the red pill — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/maa-adya-the-red-pill-2/",
+      "h1": "Maa Adya : the red pill",
+      "status": 200,
+      "text_sha256": "d50de88e417a8b774d279fb0b5a7d89739847c229070af5df5f3fa7086179aed",
+      "text_chars": 587
+    },
+    {
+      "url": "/posts/ode-to-adya-maa-from-a-ganda-bacha-wayward-child/",
+      "source_file": "src/posts/ode-to-adya-maa-from-a-ganda-bacha-wayward-child.md",
+      "title": "Ode to Adya Maa from a Ganda bacha (wayward child) — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/ode-to-adya-maa-from-a-ganda-bacha-wayward-child/",
+      "h1": "Ode to Adya Maa from a Ganda bacha (wayward child)",
+      "status": 200,
+      "text_sha256": "6a68756b442a3ca769570d0d8a956fa33aa795143696c1ecb8df5fcf6ae5d261",
+      "text_chars": 2296
+    },
+    {
+      "url": "/posts/jai-maa-adya/",
+      "source_file": "src/posts/jai-maa-adya.md",
+      "title": "Jai Maa Adya — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/jai-maa-adya/",
+      "h1": "Jai Maa Adya",
+      "status": 200,
+      "text_sha256": "d229595d0081d929a91fc503453e68aa0c40819b2fc4517db40970a1b87d06b3",
+      "text_chars": 332
+    },
+    {
+      "url": "/posts/just-getting-started/",
+      "source_file": "src/posts/just-getting-started.md",
+      "title": "Just Getting Started — Inside The Triangles",
+      "canonical": "https://insidethetriangles.com/posts/just-getting-started/",
+      "h1": "Just Getting Started",
+      "status": 200,
+      "text_sha256": "587502478d14535cb2f1d6b85a8feef54ab15f13d2d3459720bbf768dd994cb0",
+      "text_chars": 269
+    },
+    {
+      "url": "/feed.xml",
+      "source_file": "src/feed.liquid",
+      "title": null,
+      "canonical": null,
+      "h1": null,
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    },
+    {
+      "url": "/sitemap.xml",
+      "source_file": "src/sitemap.liquid",
+      "title": null,
+      "canonical": null,
+      "h1": null,
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    },
+    {
+      "url": "/llms.txt",
+      "source_file": "public/llms.txt",
+      "title": null,
+      "canonical": null,
+      "h1": null,
+      "status": 200,
+      "text_sha256": null,
+      "text_chars": null
+    }
+  ]
+}

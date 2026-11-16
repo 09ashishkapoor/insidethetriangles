@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+playwright-report/
+test-results/
+.tmp-invalid-dist/
+
+# public/images/og/ is committed: the Pages build does not launch a browser.

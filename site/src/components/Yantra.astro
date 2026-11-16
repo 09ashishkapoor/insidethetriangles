@@ -1,0 +1,28 @@
+---
+import bindu from "../assets/bindu-kali.jpg";
+---
+<div class="yantra">
+  <svg
+    viewBox="0 0 600 600"
+    role="img"
+    aria-label="Three nested downward-pointing triangles — the śakti trikoṇa — with a bindu at the centre."
+  >
+    <defs>
+      <clipPath id="yantra-bindu"><circle cx="300" cy="218.6" r="31"></circle></clipPath>
+    </defs>
+    <path d="M60 80 H540 L300 495.7 Z" fill="none" stroke="rgba(196,146,43,.28)" stroke-width="1"></path>
+    <path d="M127.2 118.8 H472.8 L300 418.1 Z" fill="none" stroke="rgba(196,146,43,.48)" stroke-width="1"></path>
+    <path d="M194.4 157.6 H405.6 L300 340.5 Z" fill="none" stroke="rgba(196,146,43,.72)" stroke-width="1.1"></path>
+    <image
+      href={bindu.src}
+      x="269"
+      y="187.6"
+      width="62"
+      height="62"
+      preserveAspectRatio="xMidYMid slice"
+      clip-path="url(#yantra-bindu)"
+      opacity="0.96"
+    ></image>
+    <circle cx="300" cy="218.6" r="31" fill="none" stroke="rgba(196,146,43,.9)" stroke-width="1"></circle>
+  </svg>
+</div>

@@ -1,0 +1,27 @@
+{
+  "$comment": "The closed vocabulary for Inside The Triangles. A draft may use these values and nothing else. Add a deity or a form here and it becomes legal everywhere at once: in the validator, in the publisher, in the build, and in content/PUBLISHING.md if you keep that file in step (the validator prints the lists from this file, so the error messages update themselves).",
+  "deities": {
+    "adya": { "name": "Adya Ma", "dev": "आद्या", "role": "the source" },
+    "kali": { "name": "Kali", "dev": "काली", "role": "the centre" },
+    "bhairava": { "name": "Bhairava", "dev": "भैरव", "role": "the gate" },
+    "mahakala": { "name": "Mahakala", "dev": "महाकाल", "role": "time" }
+  },
+  "forms": {
+    "poem": { "name": "Poem", "tag": "Poems" },
+    "short": { "name": "Short article", "tag": "short articles" },
+    "long": { "name": "Long article", "tag": "long articles" },
+    "stotram": { "name": "Stotram", "tag": "long articles" },
+    "update": { "name": "Update", "tag": "updates" }
+  },
+  "limits": {
+    "titleMin": 4,
+    "titleMax": 90,
+    "excerptMin": 40,
+    "excerptMax": 200,
+    "bodyWordsMin": 40,
+    "poemLinesMin": 4,
+    "maxDeities": 2,
+    "imageSourceMaxBytes": 12582912,
+    "wordsPerMinute": 225
+  }
+}

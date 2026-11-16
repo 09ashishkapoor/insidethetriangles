@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import aboutImage from "../assets/about.jpg";
+---
+<Base
+	title="About — Inside The Triangles"
+	description="About Inside The Triangles, a devotional blog by Ashish Kapoor sharing poems, stories, and AI-assisted reflections on Ma Adya and Bhairava."
+	image={aboutImage.src}
+>
+	<header class="article-head">
+		<h1>About</h1>
+	</header>
+	<div class="about-plate">
+		<Image
+			src={aboutImage}
+			alt="Inside The Triangles artwork"
+			widths={[480, 768, 1024]}
+			sizes="(max-width: 860px) 100vw, 760px"
+			loading="eager"
+		/>
+	</div>
+	<div class="prose">
+		<p>
+			<strong>Inside The Triangles</strong> is a devotional blog created with the aadesh of Adya Ma by me, Ashish
+			Kapoor, writing as KaliPutra_AshishKapoor. It is a gentle nudge from Ma to share joy, creativity, and bliss
+			through poems, stories, stotram commentary, and spiritual reflections on Ma Adya Mahakali, Kali, Bhairava, and
+			Kalabhairava. This isn't a subscription site or an exclusive club; it's simply a space where I come to have
+			fun, tell stories, write poems, and be in bliss with Ma in written medium.
+		</p>
+		<p>
+			You'll notice that I use AI technology liberally. Artificial intelligence is my companion, sometimes offering
+			inspiration, sometimes helping draft or edit, often surprising me with new perspectives. Whether it's
+			polishing a poem or sparking an idea for a story, AI has become part of my creative process. I delight in this
+			collaboration and am curious about what unfolds when human intuition meets machine possibility.
+		</p>
+		<p>
+			The triangle in the name hints at many things: sacred geometry; meeting points of diverse perspectives; or
+			even just the playful act of drawing shapes like I did as a child. For me, it's a reminder that inspiration can
+			come from anywhere, and that creativity often lives at unexpected intersections between jivah and technology.
+		</p>
+		<p>
+			I honor Adya Ma's guidance by approaching each post with openness and gratitude. There are no barriers here,
+			just bliss. My content ranges from silly reflections to heartfelt verses; some pieces are handwritten from
+			start to finish, while others emerge through conversation with AI.
+		</p>
+		<p>
+			Settle in however you like, with tea in hand or bare feet on cool tile. Enjoy wandering through stories old and
+			new; feel free to start your own blog if you're inspired! This space is for anyone chilling with Bhairava and
+			Ma Adya's divine vibes.
+		</p>
+		<p>Thank you for stopping by. May you enjoy your journey with divinity by your side.</p>
+	</div>
+</Base>

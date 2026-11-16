@@ -1,0 +1,30 @@
+---
+import ArchiveList from "../components/ArchiveList.astro";
+import Base from "../layouts/Base.astro";
+import holdingImage from "../assets/kali-is-krishna.jpg";
+import { getPosts, heldArchiveItem, toArchiveItem } from "../lib/posts";
+
+const posts = await getPosts();
+const items = [...posts.map(toArchiveItem), heldArchiveItem(holdingImage)].sort(
+	(a, b) => b.date.getTime() - a.date.getTime(),
+);
+---
+<Base
+	title="Articles — Inside The Triangles"
+	description="Browse spiritual essays, devotional reflections, stotram commentary, and creative articles on Ma Adya, Kali, Bhairava, and inner practice."
+>
+	<header class="article-head">
+		<h1>All Posts</h1>
+		<p class="stand">
+			Essays, devotional reflections, translations, and creative explorations of Ma Adya, Kali, Kalabhairava,
+			Bhairava, and the meeting point of spiritual practice and imagination.
+		</p>
+	</header>
+	<section class="sec">
+		<div class="sec-head">
+			<h2>the archive</h2>
+			<span class="n">{items.length} pieces</span>
+		</div>
+		<ArchiveList items={items} />
+	</section>
+</Base>

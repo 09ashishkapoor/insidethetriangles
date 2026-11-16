@@ -1,0 +1,101 @@
+---
+import { render } from "astro:content";
+import Base from "./Base.astro";
+import type { Post } from "../lib/posts";
+import { minutes, slugOf } from "../lib/posts";
+import { deityName } from "../lib/site";
+import { readableDate } from "../lib/text";
+import { parseStotram, renderPoem, renderStotram } from "../lib/verse";
+
+interface Props {
+	post: Post;
+	prev?: Post;
+	next?: Post;
+}
+
+const { post, prev, next } = Astro.props;
+const body = post.body ?? "";
+const isStotram = post.data.form === "stotram";
+const stotram = isStotram ? parseStotram(body) : null;
+const { Content } = await render(post);
+const card = `/images/og/${slugOf(post)}.jpg`;
+const deities = post.data.deity.map(deityName).join(" · ");
+---
+<Base
+	title={`${post.data.title} — Inside The Triangles`}
+	description={post.data.excerpt}
+	image={post.data.image?.src}
+	ogImage={card}
+	type="article"
+	date={post.data.date}
+>
+	<article class="post">
+		<header class="article-head">
+			<div class="meta">
+				<span>{readableDate(post.data.date)}</span>
+				<span>{minutes(post)} min</span>
+				<span>{post.data.form}</span>
+				{deities && <span>{deities}</span>}
+			</div>
+			<h1>{post.data.title}</h1>
+			{post.data.excerpt && (
+				<p class="stand">
+					{post.data.form === "poem"
+						? post.data.excerpt.split(" / ").map((line, index) => (
+								<>{index > 0 && <br />}{line}</>
+							))
+						: post.data.excerpt.replace(/ \/ /g, " ")}
+				</p>
+			)}
+		</header>
+
+		{stotram && (
+			<nav class="verse-strip" aria-label="Verses">
+				{stotram.intro && <a href="#intro" title="Introduction">—</a>}
+				{stotram.verses.map((verse) => (
+					<a href={`#v${verse.number}`} title={`Verse ${verse.number}`}>{verse.number}</a>
+				))}
+				{stotram.outro && <a href="#outro" title="Conclusion">—</a>}
+			</nav>
+		)}
+
+		{isStotram && stotram ? (
+			<div class="reading">
+				<div class="stotram" data-post-body set:html={renderStotram(body)} />
+				<aside class="margin" aria-label="On this page">
+					<h2>on this page</h2>
+					<ol>
+						{stotram.intro && <li><a href="#intro"><b>—</b> Introduction</a></li>}
+						{stotram.verses.map((verse) => (
+							<li><a href={`#v${verse.number}`}><b>{verse.number}</b> Verse {verse.number}</a></li>
+						))}
+						{stotram.outro && <li><a href="#outro"><b>—</b> Conclusion</a></li>}
+					</ol>
+					<p class="note">
+						{stotram.verses.length} verses. The Devanagari text is not in the archive — the transliteration is the
+						author’s.
+					</p>
+				</aside>
+			</div>
+		) : post.data.form === "poem" ? (
+			<div class="reading reading--single">
+				<div data-post-body set:html={renderPoem(body)} />
+			</div>
+		) : (
+			<div class="reading reading--single">
+				<div class="prose" data-post-body><Content /></div>
+			</div>
+		)}
+
+		{(prev || next) && (
+			<div class="next-prev">
+				{prev && (
+					<a href={`/posts/${slugOf(prev)}/`}><span class="dir">earlier</span><span class="ti">{prev.data.title}</span></a>
+				)}
+				{next && (
+					<a href={`/posts/${slugOf(next)}/`}><span class="dir">later</span><span class="ti">{next.data.title}</span></a>
+				)}
+			</div>
+		)}
+	</article>
+</Base>

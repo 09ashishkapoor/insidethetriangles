@@ -1,0 +1,113 @@
+---
+import ArchiveList from "../components/ArchiveList.astro";
+import Yantra from "../components/Yantra.astro";
+import Base from "../layouts/Base.astro";
+import holdingImage from "../assets/kali-is-krishna.jpg";
+import { getPosts, heldArchiveItem, slugOf, toArchiveItem } from "../lib/posts";
+import { deityDev, deityKeys, deityName, vocabulary } from "../lib/site";
+import { wordCount } from "../lib/text";
+
+const posts = await getPosts();
+const items = [...posts.map(toArchiveItem), heldArchiveItem(holdingImage)].sort(
+	(a, b) => b.date.getTime() - a.date.getTime(),
+);
+const latest = items.slice(0, 12);
+const words = posts.reduce((total, post) => total + wordCount(post.body ?? ""), 0);
+const newest = items[0];
+const gates = deityKeys.map((key) => ({
+	key,
+	name: deityName(key),
+	dev: deityDev(key),
+	role: vocabulary.deities[key].role,
+	posts: posts.filter((post) => post.data.deity.includes(key)).slice(0, 3),
+}));
+const years = [...new Set(items.map((item) => item.date.getUTCFullYear()))]
+	.sort((a, b) => b - a)
+	.map((year) => {
+		const inYear = items.filter((item) => item.date.getUTCFullYear() === year);
+		const inYearPosts = posts.filter((post) => post.data.date.getUTCFullYear() === year);
+		return {
+			year,
+			count: inYear.length,
+			words: inYearPosts.reduce((total, post) => total + wordCount(post.body ?? ""), 0),
+			width: Math.round((inYear.length / items.length) * 100),
+		};
+	});
+---
+<Base title="Inside The Triangles" description="Devotional poems, stories, and spiritual reflections on Ma Adya Mahakali, Kali, Bhairava, and sacred creativity by Ashish Kapoor.">
+	<section class="stage">
+		<Yantra />
+		<div class="hero-txt">
+			<div class="dev" lang="sa">{deityDev("kali")}</div>
+			<h1 class="hero-title">Inside The Triangles</h1>
+			<p class="hero-quote">The single, ultimate reality behind the three worlds.</p>
+			<div class="epi">— Kali Tandava commentary, verse one</div>
+			<p>Inside The Triangles is a devotional archive: poems, stotram commentary, short pieces.</p>
+			<p>The yantra is three triangles and a bindu. You enter by the outermost, and the centre is hers.</p>
+			<ul class="gates">
+				{gates.map((gate, index) => (
+					<li>
+						<a href={`/#gate-${gate.key}`}>
+							<span class="g-no">{String(index + 1).padStart(2, "0")}</span>
+							<span class="g-t" lang="sa">{gate.dev} — {gate.name}</span>
+							<span class="g-n">{gate.role}</span>
+						</a>
+					</li>
+				))}
+				<li>
+					<a href={newest.href}>
+						<span class="g-no">—</span>
+						<span class="g-t">the bindu</span>
+						<span class="g-n">the newest piece</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="sec">
+		<div class="sec-head">
+			<h2>the pieces</h2>
+			<span class="n">{items.length} pieces, {words.toLocaleString()} words, newest first</span>
+		</div>
+		<ArchiveList items={latest} start={items.length} />
+		<p class="see-all"><a href="/articles/">All pieces →</a></p>
+	</section>
+
+	<section class="sec">
+		<div class="sec-head">
+			<h2>where to enter</h2>
+			<span class="n">bhairava is the gate, kali is the centre; mahakala reads within bhairava</span>
+		</div>
+		<div class="gate-grid">
+			{gates.map((gate) => (
+				<div class="gate" id={`gate-${gate.key}`}>
+					<div class="dev" lang="sa">{gate.dev}</div>
+					<h3>{gate.name}</h3>
+					<div class="role">{gate.role}</div>
+					<ul>
+						{gate.posts.map((post) => (
+							<li><a href={`/posts/${slugOf(post)}/`}>{post.data.title}</a></li>
+						))}
+					</ul>
+					{gate.key === "bhairava" && <div class="gate-note">kshetrápāla for śakti vidyā</div>}
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="sec">
+		<div class="sec-head">
+			<h2>by year</h2>
+			<span class="n">every piece in the archive</span>
+		</div>
+		<div class="years">
+			{years.map((year) => (
+				<div class="year" style={`--w:${year.width}%`}>
+					<div class="y">{year.year}</div>
+					<div class="c">{year.count} piece{year.count === 1 ? "" : "s"} · {year.words.toLocaleString()} words</div>
+				</div>
+			))}
+		</div>
+	</section>
+</Base>

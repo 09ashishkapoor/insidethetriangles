@@ -7,6 +7,10 @@
     "start": "eleventy --serve",
     "build": "node ./scripts/clean-output.mjs && eleventy",
     "dev": "eleventy --serve --incremental",
+    "publish": "node ./scripts/publish.mjs",
+    "content:check": "node ./scripts/content-check.mjs",
+    "content:report": "node ./scripts/content-check.mjs --report",
+    "content:strict": "node ./scripts/content-check.mjs --strict",
     "validate": "npm run validate:syntax && npm run build && npm run validate:browser && npm run validate:links",
     "validate:browser": "playwright test",
     "validate:links": "node ./scripts/check-links.mjs",
@@ -15,7 +19,7 @@
     "validate:visual": "npm run build && playwright test tests/visual.spec.js",
     "validate:visual:update": "npm run build && playwright test tests/visual.spec.js --update-snapshots",
     "validate:perf": "npm run build && playwright test tests/performance.spec.js",
-    "validate:syntax": "node --check playwright.config.js && node --check scripts/clean-output.mjs && node --check scripts/check-links.mjs && node --check scripts/serve-static.mjs && node --check tests/smoke.spec.js && node --check tests/a11y.spec.js && node --check tests/visual.spec.js && node --check tests/performance.spec.js"
+    "validate:syntax": "node --check playwright.config.js && node --check scripts/clean-output.mjs && node --check scripts/check-links.mjs && node --check scripts/serve-static.mjs && node --check scripts/publish.mjs && node --check scripts/content-check.mjs && node --check scripts/lib/schema.mjs && node --check scripts/lib/frontmatter.mjs && node --check scripts/lib/render.mjs && node --check scripts/lib/media.mjs && node --check scripts/lib/text.mjs && node --check tests/smoke.spec.js && node --check tests/a11y.spec.js && node --check tests/visual.spec.js && node --check tests/performance.spec.js"
   },
   "keywords": [],
   "author": "",

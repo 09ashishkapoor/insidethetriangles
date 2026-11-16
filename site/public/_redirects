@@ -1,0 +1,2 @@
+# No redirects. All 32 post URLs are preserved by src/content/posts/<slug>/index.md.
+# Add a rule here only if a URL parity failure is explicitly approved as a redirect.

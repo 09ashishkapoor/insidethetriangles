@@ -1,0 +1,21 @@
+---
+import PostLayout from "../../layouts/Post.astro";
+import { getPosts, slugOf, type Post } from "../../lib/posts";
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	return posts.map((post, index) => ({
+		params: { slug: slugOf(post) },
+		props: { post, prev: posts[index + 1], next: posts[index - 1] },
+	}));
+}
+
+interface Props {
+	post: Post;
+	prev?: Post;
+	next?: Post;
+}
+
+const { post, prev, next } = Astro.props;
+---
+<PostLayout post={post} prev={prev} next={next} />

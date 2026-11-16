@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import type { ArchiveItem } from "../lib/posts";
+import { shortDate } from "../lib/text";
+
+const { items, start = items.length } = Astro.props as { items: ArchiveItem[]; start?: number };
+---
+<ul class="archive">
+  {items.map((item, index) => (
+    <li>
+      <a href={item.href}>
+        <span class="no">{start - index}</span>
+        {item.image ? (
+          <Image src={item.image} alt="" width={68} height={68} class="th" loading="lazy" />
+        ) : (
+          <span class="th th-empty" aria-hidden="true"></span>
+        )}
+        <span class="ti">{item.title}</span>
+        <span class="de" title={item.deity.join(" · ")}>
+          {item.deity[0] ?? ""}{item.deity.length ? " · " : ""}{item.form}
+        </span>
+        <span class="rd">{item.minutes} min</span>
+        <span class="dt">{shortDate(item.date)}</span>
+      </a>
+    </li>
+  ))}
+</ul>

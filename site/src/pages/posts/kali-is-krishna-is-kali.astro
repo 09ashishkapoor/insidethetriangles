@@ -1,0 +1,26 @@
+---
+// Temporary holding page for the one existing post with no body text.
+// It preserves /posts/kali-is-krishna-is-kali/ and the empty text hash. Replace this file when the
+// author supplies a body or approves an image-only form. See migration/next-agent-brief.md §4.1.
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import holdingImage from "../../assets/kali-is-krishna.jpg";
+---
+<Base
+	title="Kali is Krishna is Kali — Inside The Triangles"
+	description="Thoughts, stories and poems about Ma Adya Mahakali and Bhairava"
+	image={holdingImage.src}
+	ogImage={holdingImage.src}
+>
+	<article class="holding">
+		<h1>Kali is Krishna is Kali</h1>
+		<Image
+			src={holdingImage}
+			alt="Kali is Krishna is Kali"
+			class="cover"
+			widths={[480, 768, 1200]}
+			sizes="(max-width: 860px) 100vw, 640px"
+		/>
+		<div class="post-content" data-post-body></div>
+	</article>
+</Base>

@@ -1,0 +1,26 @@
+---
+import ArchiveList from "../components/ArchiveList.astro";
+import Base from "../layouts/Base.astro";
+import { getPosts, toArchiveItem } from "../lib/posts";
+
+const poems = (await getPosts()).filter((post) => post.data.form === "poem").map(toArchiveItem);
+---
+<Base
+	title="Poems — Inside The Triangles"
+	description="Devotional poems and verses dedicated to Ma Adya Mahakali, Kali, Bhairava, Kalabhairava, and the living presence of the Divine Mother."
+>
+	<header class="article-head">
+		<h1>Poems</h1>
+		<p class="stand">
+			Devotional verses to Ma Adya Mahakali, Kali, Bhairava, and Kalabhairava — written as offerings of gratitude,
+			longing, play, and surrender.
+		</p>
+	</header>
+	<section class="sec">
+		<div class="sec-head">
+			<h2>the poems</h2>
+			<span class="n">{poems.length} pieces</span>
+		</div>
+		<ArchiveList items={poems} />
+	</section>
+</Base>

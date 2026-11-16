@@ -1,0 +1,280 @@
+/* Site-specific pieces on top of the approved dir-2.css. Nothing here reinvents the design:
+   it only gives real content the shapes the demo assumed. */
+
+.hero-title {
+	font-family: var(--display);
+	font-weight: 400;
+	font-size: clamp(29px, 2.9vw, 38px);
+	line-height: 1.12;
+	letter-spacing: 0.005em;
+	margin-bottom: 14px;
+	text-wrap: balance;
+}
+.hero-quote {
+	font-family: var(--display);
+	font-size: clamp(20px, 2vw, 27px);
+	line-height: 1.35;
+	color: var(--bone-2);
+	margin-bottom: 18px;
+	max-width: 30ch;
+}
+.hero-quote em {
+	color: var(--gold);
+	font-style: normal;
+}
+.gates a {
+	grid-template-columns: 24px 1fr auto;
+}
+.gate h3 a:hover {
+	color: var(--gold);
+}
+.gate li a:hover {
+	color: var(--gold);
+}
+
+/* archive */
+.archive .ti {
+	overflow-wrap: anywhere;
+}
+.archive .de {
+	text-align: right;
+}
+
+/* poem */
+.verse {
+	max-width: 62ch;
+	padding-top: 30px;
+}
+.verse .stanza {
+	font-family: var(--display);
+	font-size: clamp(20px, 2vw, 25px);
+	line-height: 1.55;
+	color: var(--bone);
+	margin-bottom: 1.35em;
+}
+.verse .stanza + .stanza {
+	margin-top: 0;
+}
+
+/* prose */
+.prose h2,
+.prose h3 {
+	font-family: var(--mono);
+	font-size: 12px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--gold);
+	font-weight: 400;
+	margin: 2.2em 0 0.9em;
+}
+.prose h2 + p,
+.prose h3 + p {
+	margin-top: 0;
+}
+.prose strong {
+	color: var(--bone);
+	font-weight: 500;
+}
+.prose em {
+	color: var(--gold);
+	font-style: normal;
+}
+.prose ul,
+.prose ol {
+	margin: 0 0 1.2em 1.2em;
+	color: var(--bone-2);
+}
+.prose li {
+	margin-bottom: 0.35em;
+}
+.prose blockquote {
+	border-left: 1px solid var(--gold-dim);
+	padding-left: 18px;
+	color: var(--bone);
+	font-family: var(--display);
+	font-size: 20px;
+	line-height: 1.5;
+	margin: 1.4em 0;
+}
+.prose a {
+	color: var(--gold);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.prose hr {
+	border: 0;
+	border-top: 1px solid var(--gold-dim);
+	margin: 2em 0;
+}
+
+/* stotram */
+.stotram .intro {
+	max-width: 62ch;
+	padding-top: 24px;
+}
+.stotram .intro h2 {
+	font-family: var(--mono);
+	font-size: 12px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--gold);
+	font-weight: 400;
+	margin: 2em 0 0.9em;
+}
+.stotram .intro p {
+	font-size: 16.5px;
+	line-height: 1.75;
+	margin-bottom: 1.15em;
+	color: var(--bone-2);
+}
+.stotram .intro p b {
+	color: var(--bone);
+	font-weight: 500;
+}
+.vu .iast i {
+	font-style: italic;
+}
+.vu .xl p,
+.vu .cm p {
+	overflow-wrap: anywhere;
+}
+.vu .cm p b {
+	color: var(--bone);
+}
+.stotram .outro {
+	max-width: 62ch;
+	padding-top: 10px;
+}
+.stotram .outro h2 {
+	font-family: var(--mono);
+	font-size: 12px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--gold);
+	font-weight: 400;
+	margin: 2em 0 0.9em;
+}
+.stotram .outro p {
+	font-size: 16.5px;
+	line-height: 1.75;
+	margin-bottom: 1.15em;
+	color: var(--bone-2);
+}
+.stotram .outro p b {
+	color: var(--bone);
+	font-weight: 500;
+}
+
+/* holding page */
+.holding {
+	padding: 40px 0 0;
+}
+.holding h1 {
+	font-family: var(--display);
+	font-weight: 400;
+	font-size: clamp(36px, 4.4vw, 60px);
+	line-height: 1.02;
+	margin-bottom: 20px;
+}
+.holding .cover {
+	max-width: 640px;
+	border: 1px solid var(--gold-faint);
+}
+@media (max-width: 860px) {
+	.verse .stanza {
+		font-size: 20px;
+	}
+	.holding h1 {
+		font-size: clamp(30px, 8vw, 42px);
+	}
+}
+
+/* layout helpers */
+.reading--single {
+	grid-template-columns: minmax(0, 1fr);
+}
+.reading--single > div {
+	max-width: 62ch;
+}
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+.see-all {
+	padding: 18px 0 0;
+	font-family: var(--mono);
+	font-size: 12px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+.see-all a {
+	color: var(--gold);
+}
+.see-all a:hover {
+	color: var(--bone);
+}
+.archive .th-empty {
+	display: block;
+	background: var(--night-2);
+	border: 1px solid var(--gold-faint);
+}
+.about-plate {
+	margin: 24px 0 4px;
+	max-width: 760px;
+}
+.about-plate img {
+	width: 100%;
+	height: auto;
+	border: 1px solid var(--gold-faint);
+}
+.brand-mark {
+	width: 22px;
+	height: 21px;
+	flex: none;
+}
+.footer-mark {
+	width: 46px;
+	height: 44px;
+}
+
+/* The verse numeral is decorative; keep it out of the body text so the URL text hash stays exact. */
+.vu .vn::before {
+	content: "॥" attr(data-n) "॥";
+}
+
+/* The footer's 15px Devanagari line needs 4.5:1; the design's display vermillion is 3.68:1 at that size.
+   Keep the display colour elsewhere; this is a text-size contrast fix, not a palette change. */
+footer .jai {
+	color: #d95743;
+}
+
+/* The design's archive grid assumed short form labels and short dates. Keep the columns aligned
+   instead of letting "short article" and "7 November 2025" collide. */
+.archive a {
+	grid-template-columns: 38px 34px minmax(0, 1fr) 220px 64px 90px;
+}
+.archive .de {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.archive .dt {
+	white-space: nowrap;
+}
+@media (max-width: 1100px) {
+	.archive a {
+		grid-template-columns: 34px 30px minmax(0, 1fr) 76px 58px;
+	}
+}
+@media (max-width: 860px) {
+	.archive a {
+		grid-template-columns: 30px minmax(0, 1fr) 54px;
+	}
+}
