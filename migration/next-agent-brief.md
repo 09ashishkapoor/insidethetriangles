@@ -40,10 +40,14 @@ recorded deviations:
 - **Markdown:** Sätteri with `features.smartPunctuation: false`; Astro's default smart punctuation would
   rewrite straight quotes and break the text hash. The config uses the processor API, not the deprecated
   `markdown.smartypants`.
+- **Hosting changed during cutover.** The existing Git-linked **Cloudflare Pages** project was adjusted to
+  root `site`, build `npm ci && npm run build:ci`, output `dist`, Node 24, and the `main` push deployed it to
+  `insidethetriangles.com`. Workers is now optional (`npm run deploy:worker`, no custom domain). The approved
+  Workers-hosting decision in §1 is superseded for the initial cutover.
 - **Status:** `npm run check` passes (31 posts); `npm run build` passes (cards + Astro + output check);
-  **60/60 Playwright tests pass** (39 URL parity, invalid-post, 6 smoke, 8 a11y, 6 links); `wrangler deploy
-  --dry-run` passes. The remaining gates are the Workers preview, a real deploy, and the author-only items
-  (Devanagari, Tandava watermark permission, image-only post).
+  **60/60 Playwright tests pass** (39 URL parity, invalid-post, 6 smoke, 8 a11y, 6 links); Pages production
+  deployment `1df1061b` is live on the domain; the Git-built Pages preview passed. Remaining: author-only
+  items (Devanagari, Tandava watermark permission, image-only post) and optional Workers cleanup.
 
 ## 1 · Decisions already fixed
 

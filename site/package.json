@@ -12,8 +12,9 @@
     "check": "astro check && node scripts/validate-content.mjs",
     "cards": "node scripts/cards.mjs",
     "test": "playwright test",
-    "deploy:preview": "npm run build && wrangler deploy --config wrangler.preview.jsonc",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name insidethetriangles --branch main",
+    "deploy:worker": "npm run build && wrangler deploy",
+    "deploy:preview-worker": "npm run build && wrangler deploy --config wrangler.preview.jsonc"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",

@@ -1,7 +1,7 @@
 # Inside The Triangles
 
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
-[![Deploy: Cloudflare Workers](https://img.shields.io/badge/Deploy-Cloudflare%20Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
+[![Deploy: Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Live Site](https://img.shields.io/badge/Live-insidethetriangles.com-8B0000)](https://insidethetriangles.com)
 
@@ -11,8 +11,9 @@ A devotional writing project published at [insidethetriangles.com](https://insid
 
 ## New site — Astro 7
 
-The production site is moving to **Astro 7 + Direction 2 (The Yantra)** in [`site/`](./site). All 32 existing
-URLs are preserved; the 32-row taxonomy is approved; the build, URL parity, a11y and links are green.
+The production site is **Astro 7 + Direction 2 (The Yantra)** in [`site/`](./site), live on Cloudflare Pages.
+All 32 existing URLs are preserved; the 32-row taxonomy is approved; the build, URL parity, a11y and links are
+green. GitHub `main` deploys the Pages production build (`site/`, `npm ci && npm run build:ci`, `dist`, Node 24).
 See [`site/README.md`](./site/README.md) for the runbook.
 
 ```bash
