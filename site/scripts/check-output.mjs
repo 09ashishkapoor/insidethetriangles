@@ -30,10 +30,13 @@ const sitemap = readFileSync(join(DIST, "sitemap.xml"), "utf8");
 const locs = [...sitemap.matchAll(/<loc>/g)].length;
 const feed = readFileSync(join(DIST, "feed.xml"), "utf8");
 const items = [...feed.matchAll(/<item>/g)].length;
-const posts = baseline.urls.filter((row) => row.url.startsWith("/posts/")).length;
 
-if (locs !== 36) {
-	console.error(`✗ sitemap has ${locs} <loc>; expected 36`);
+const allPosts = readdirSync(join(DIST, "posts"), { withFileTypes: true })
+	.filter((entry) => entry.isDirectory())
+	.map((entry) => entry.name);
+const expectedLocs = 4 + allPosts.length;
+if (locs !== expectedLocs) {
+	console.error(`✗ sitemap has ${locs} <loc>; expected ${expectedLocs} (4 pages + ${allPosts.length} posts)`);
 	process.exit(1);
 }
 if (items !== 20) {
@@ -43,11 +46,8 @@ if (items !== 20) {
 
 // The Pages build does not launch a browser; the OG cards are committed. Every collection post must
 // have one in dist, and the holding page is the named exception.
-const postDirs = readdirSync(join(DIST, "posts"), { withFileTypes: true })
-	.filter((entry) => entry.isDirectory())
-	.map((entry) => entry.name)
-	.filter((slug) => slug !== "kali-is-krishna-is-kali");
-const missingCards = postDirs.filter((slug) => !existsSync(join(DIST, "images", "og", `${slug}.jpg`)));
+const cardDirs = allPosts.filter((slug) => slug !== "kali-is-krishna-is-kali");
+const missingCards = cardDirs.filter((slug) => !existsSync(join(DIST, "images", "og", `${slug}.jpg`)));
 if (missingCards.length) {
 	console.error(`✗ ${missingCards.length} post${missingCards.length === 1 ? "" : "s"} missing an OG card in dist/images/og`);
 	for (const slug of missingCards) console.error(`  ${slug}`);
@@ -55,5 +55,5 @@ if (missingCards.length) {
 }
 
 console.log(
-	`✓ output — ${baseline.urls.length} baseline URLs, ${posts} posts, ${locs} sitemap locs, ${items} feed items, ${postDirs.length} OG cards`,
+	`✓ output — ${baseline.urls.length} baseline URLs, ${allPosts.length} posts, ${locs} sitemap locs, ${items} feed items, ${cardDirs.length} OG cards`,
 );

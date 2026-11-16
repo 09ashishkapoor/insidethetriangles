@@ -44,7 +44,7 @@ recorded deviations:
   root `site`, build `npm ci && npm run build:ci`, output `dist`, Node 24, and the `main` push deployed it to
   `insidethetriangles.com`. Workers is now optional (`npm run deploy:worker`, no custom domain). The approved
   Workers-hosting decision in §1 is superseded for the initial cutover.
-- **Status:** `npm run check` passes (31 posts); `npm run build` passes (cards + Astro + output check);
+- **Status:** `npm run check` passes (32 posts); `npm run build` passes (cards + Astro + output check);
   **60/60 Playwright tests pass** (39 URL parity, invalid-post, 6 smoke, 8 a11y, 6 links); Pages production
   deployment `1df1061b` is live on the domain; the Git-built Pages preview passed. Remaining: author-only
   items (Devanagari, Tandava watermark permission, image-only post) and optional Workers cleanup.

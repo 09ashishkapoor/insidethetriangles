@@ -21,9 +21,10 @@ npm run cards -- --force
 npm run deploy          # npm run build && wrangler deploy
 ```
 
-`npm run build` writes `dist/`: 36 page URLs (4 pages + 32 posts) plus `404.html`, `feed.xml`, `sitemap.xml`,
+`npm run build` writes `dist/`: 37 page URLs (4 pages + 33 posts) plus `404.html`, `feed.xml`, `sitemap.xml`,
 `llms.txt`, `robots.txt` and the opt-in `_headers`/`_redirects`; `wrangler deploy --dry-run` passes.
-The 32 post URLs must stay exactly `/posts/<slug>/`; the URL parity test is the gate. Astro's Markdown
+The 32 migrated post URLs must stay exactly `/posts/<slug>/`; new posts add their own. The URL parity test is
+the gate for the migrated set. Astro's Markdown
 processor is Sätteri with `smartPunctuation: false`, because the archive contains both straight and curly
 quotes and the text hash is exact.
 
@@ -41,8 +42,8 @@ also carry `slug` (the frozen URL). New posts may omit `slug`; the folder name i
 or a list of at most two; `form` is one of the five vocabulary values. A site `update` may omit `deity` — the
 approved `—` on “Just Getting Started” is the only such post.
 
-The archive has 32 pieces: 31 collection entries plus the named holding page for the image-only post.
-`/articles/` shows all 32; `/poems/` shows the 14 `form: poem` pieces.
+The archive has 33 pieces: 32 collection entries plus the named holding page for the image-only post.
+`/articles/` shows all 33; `/poems/` shows the 14 `form: poem` pieces.
 
 Bodies:
 

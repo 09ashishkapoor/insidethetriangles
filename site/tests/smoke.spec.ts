@@ -14,7 +14,7 @@ test("home presents the yantra, the archive and the four gates", async ({ page }
 test("the archive pages carry all pieces and the poems page is poem-only", async ({ page }) => {
 	await page.goto("/articles/");
 	await expect(page.locator("h1").first()).toHaveText("All Posts");
-	await expect(page.locator(".archive li")).toHaveCount(32);
+	await expect(page.locator(".archive li")).toHaveCount(33);
 
 	await page.goto("/poems/");
 	await expect(page.locator("h1").first()).toHaveText("Poems");
@@ -57,7 +57,7 @@ test("feed, sitemap and llms.txt keep their contracts", async ({ request }) => {
 
 	const sitemap = await request.get("/sitemap.xml");
 	expect(sitemap.status()).toBe(200);
-	expect((await sitemap.text()).match(/<loc>/g)?.length).toBe(36);
+	expect((await sitemap.text()).match(/<loc>/g)?.length).toBe(37);
 
 	const llms = await request.get("/llms.txt");
 	expect(llms.status()).toBe(200);
